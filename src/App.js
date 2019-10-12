@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "./App.css";
 
 export default class Test extends Component{
   constructor(props) {
@@ -129,9 +130,9 @@ render() {
 
                     let type = option.constructor === String ? 'String' : option.constructor === Object ? 'Object' : false
 
-                    option = type == 'String' ? {[option]: option} : option
+                    option = type === 'String' ? {[option]: option} : option
 
-                    return type ? <div className={'select__option' + (this.props.value == option[Object.keys(option)[0]] ? ' select__option-active' : '')} onClick={this.handleClick} data-value={option[Object.keys(option)[0]]} key={option[Object.keys(option)[0]]}>{Object.keys(option)[0]}</div> : ''
+                    return type ? <div className={'select__option' + (this.props.value === option[Object.keys(option)[0]] ? ' select__option-active' : '')} onClick={this.handleClick} data-value={option[Object.keys(option)[0]]} key={option[Object.keys(option)[0]]}>{Object.keys(option)[0]}</div> : ''
 
                 })}
 

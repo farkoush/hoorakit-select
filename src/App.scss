@@ -1,0 +1,188 @@
+html {
+	min-height: 100%;
+}
+
+body {
+	font-family: helvetica, arial, sans serif;
+	background: linear-gradient(45deg, rgba(78,62,250,1) 0%,rgba(59,47,191,1) 100%);
+}
+
+.wrapper {
+	width: 60%;
+	min-width: 400px;
+	margin: 50px auto;
+	text-align: center;
+	color: #303233;
+	padding: 25px 50px;
+	border-radius: 3px;
+	box-shadow: 0px 3px 5px rgba(0, 0, 0, .2);
+	background: #f4f5f7;
+	
+	h1 {
+		margin: 0px;
+	}
+	
+	h2 {
+		margin: 0px;
+		opacity: .6;
+		font-weight: 100;
+	}
+	
+	p {
+		opacity: .9;
+		
+		&.Shameless {
+			opacity: .7;
+			margin: 20px 0px 0px 0px;
+			
+			a {
+				text-decoration: none;
+				color: #303233;
+			}
+		}
+	}
+	
+	.changeLog {
+		width: 75%;
+		margin: auto;
+		text-align: left;
+		
+		&_entry {
+			margin-top: 20px;
+		}
+		
+		h3 {
+			margin: 0px;
+		}
+		
+		p {
+			margin-left: 10px;
+		}
+	}
+	
+	.select__wrapper {
+		text-align: left;
+		
+		h3 {
+			margin: 0px;
+		}
+		
+		.select {
+			margin-bottom: 30px;
+		}
+	}
+}
+
+/******************************/
+/*    Start Component CSS     */
+/******************************/
+
+.select {
+	position: relative;
+	text-align: left;
+	cursor: pointer;
+	
+	&__label {
+		font-size: 16px;
+		line-height: 16px;
+		font-weight: 100;
+		height: 40px;
+		position: absolute;
+		opacity: .8;
+		color: #303233;
+		
+		p {
+			transition: all .3s;
+			margin-top: 30px;
+			margin-left: 15px;
+		}
+	}
+	
+	&__value {
+		font-weight: 100;
+		border-bottom: solid 2px #03A9F4;
+		margin-top: 10px;
+		padding: 30px 15px 15px;
+		opacity: .8;
+		min-height: 20px;
+		
+		p {
+			margin: 0px;
+			min-height: 20px;
+		}
+	}
+	
+	&__options {
+		background: #f4f5f7;
+		position: absolute;
+		left: 0px;
+		right: 0px;
+		margin: auto;
+		transition: opacity .2s, padding .2s, max-height .2s;
+		overflow: scroll;
+		box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, .2);
+		z-index: 999;
+		
+		.select__option {
+			padding: 13px;
+			transition: all .2s;
+			
+			&:hover, &-active {
+				background: rgba(0, 0, 0, .1)
+			}
+		}
+	}
+	
+	&-active {
+		
+		.select__trigger {
+			position: fixed;
+			top: 0px;
+			right: 0px;
+			bottom: 0px;
+			left: 0px;
+			z-index: 9;
+		}
+		
+		.select__options {
+			max-height: 180px;
+			opacity: 1;
+		}
+	}
+	
+	&-active, &.selected {
+		
+		.select__label {
+			font-size: 13px;
+			font-weight: 900;
+			opacity: 1;
+			
+			p {
+				margin-top: 0px;
+				margin-left: 0px;
+			}
+		}
+	}
+	
+	&-deactive {
+		
+		.select__value {
+			animation: fadeIn .3s;
+		}
+		
+		.select__options {
+			background: #f4f5f7;
+			max-height: 0px;
+			opacity: 0;
+		}
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
